@@ -7,7 +7,8 @@ WORKDIR  /Django_CICP_app
 
 ENV PYTHONUNBUFFERED = 1
 
-RUN pip3 install --upgrade pip3
+# RUN pip3 install --upgrade pip3
+
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
