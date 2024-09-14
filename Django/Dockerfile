@@ -12,7 +12,7 @@ COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 # copy python project files from local to /hello-py image working directory
-COPY ./Django .
+COPY . .
 RUN  python3  manage.py makemigrations
 RUN  python3  manage.py migrate
 
