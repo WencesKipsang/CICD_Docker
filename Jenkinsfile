@@ -31,10 +31,10 @@ pipeline {
             steps {
                 echo "Building"
                 script {
-                    dir('/root/frs_cicd') {
-                        sh '''
-                        docker compose up
+                    dir('/root/frs_cicd/CICD_Docker') {
                         
+                        sh '''
+                        docker compose up                        
                         '''
                         echo "docker images complete"
                     } 
