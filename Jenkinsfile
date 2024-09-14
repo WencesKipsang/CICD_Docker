@@ -34,7 +34,7 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
 
                         sh '''
-                        docker compose up                        
+                        docker compose up -d                       
                         '''
                         echo "docker images complete"
                     } 
