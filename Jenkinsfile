@@ -44,7 +44,7 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                echo "seting up gunicorn"
+                echo "setting up gunicorn"
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
                     sh '''
