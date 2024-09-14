@@ -13,6 +13,7 @@ sudo systemctl start jenkins-docker-gunicorn.service
 sudo systemctl enable jenkins-docker-gunicorn.service
 
 sudo systemctl daemon-reload
+
 sudo systemctl restart jenkins-docker-gunicorn.socket
 sudo systemctl restart jenkins-docker-gunicorn.service
 sudo systemctl status jenkins-docker-gunicorn.service
