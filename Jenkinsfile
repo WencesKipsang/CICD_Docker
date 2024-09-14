@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                         dir('/root/frs_cicd/CICD_Docker') {
-                            git branch: 'main', url: 'https://github.com/WencesKipsang/Django-cicd.git' 
+                            git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
                         }                     
                 }              
 
@@ -32,7 +32,7 @@ pipeline {
                 echo "Building"
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
-                        
+
                         sh '''
                         docker compose up                        
                         '''
@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo "seting up gunicorn"
                 script {
-                    dir('/root/frs_cicd/CICD2') {
+                    dir('/root/frs_cicd/CICD_Docker') {
                     sh '''
                     chmod +x  gunicorn.sh
                     ./gunicorn.sh
