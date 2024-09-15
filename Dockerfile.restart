@@ -1,0 +1,13 @@
+FROM alpine:latest
+
+# Install Docker CLI 
+RUN apk add --no-cache docker-cli
+
+# Add the restart script
+COPY restart_django_container.sh /usr/local/bin/restart_django_container.sh
+
+# Make the script executable
+RUN chmod +x /usr/local/bin/restart_django_container.sh
+
+# Run the script
+CMD ["/usr/local/bin/restart_django_container.sh"]
