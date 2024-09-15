@@ -2,6 +2,7 @@
 
 set -x
 
+
 sudo cp -rf jenkins-docker-gunicorn.socket  /etc/systemd/system/
 sudo cp -rf jenkins-docker-gunicorn.service  /etc/systemd/system/
 
