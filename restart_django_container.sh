@@ -1,6 +1,6 @@
 #!/bin/bash
 
 while true; do
-    docker-compose restart django_cont
-    sleep 180  # Sleep for 3 minutes
+    docker restart django_cont
+    sleep 120  # Sleep for 32 minutes
 done
