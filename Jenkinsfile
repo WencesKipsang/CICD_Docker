@@ -49,6 +49,7 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
                     sh '''
                     chmod 755 /root/frs_cicd/CICD_Docker
+                    chown jenkins:jenkins  /root/frs_cicd/CICD_Docker
                     chmod +x  gunicorn.sh
                     ./gunicorn.sh
 
