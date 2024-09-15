@@ -49,6 +49,7 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
                     sh '''
                     chmod +x gunicorn.sh
+                    ls -l gunicorn.sh
                     ./gunicorn.sh
                     '''                    
                     }
