@@ -48,11 +48,8 @@ pipeline {
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
                     sh '''
-                    
-                    chown jenkins:jenkins  gunicorn.sh
-                    chmod +x  gunicorn.sh
+                    chmod +x gunicorn.sh
                     ./gunicorn.sh
-
                     '''                    
                     }
                 }
