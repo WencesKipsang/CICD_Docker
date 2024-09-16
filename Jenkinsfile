@@ -35,7 +35,7 @@ pipeline {
 
                         sh '''
                         chmod +x restart_django_container.sh
-                        docker compose up -d                       
+                        docker compose up --build --no-cache -d                       
                         '''
                         echo "docker images complete"
                     } 
