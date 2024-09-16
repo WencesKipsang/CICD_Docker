@@ -3,7 +3,7 @@
 FROM python:3.12.6-alpine
 
 # create working directory and install pip dependencies
-WORKDIR  /Django_CICP_app
+WORKDIR  /Django_CICD_app
 
 ENV PYTHONUNBUFFERED = 1
 

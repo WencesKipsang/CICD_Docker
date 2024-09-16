@@ -16,16 +16,16 @@ services:
     command: gunicorn  Django_CICD.wsgi  --bind  0.0.0.0:8888
   
 
-  restart-service:
-    build:
-      context: .
-      dockerfile: Dockerfile.restart
-    container_name: "restart_django"
-    # Optionally, you might need to use the same network as the Django service
-    networks:
-      - default
-    # Give the restart service access to Docker (if needed)
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+  # restart-service:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.restart
+  #   container_name: "restart_django"
+  #   # Optionally, you might need to use the same network as the Django service
+  #   networks:
+  #     - default
+  #   # Give the restart service access to Docker (if needed)
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
     
       
