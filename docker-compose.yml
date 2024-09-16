@@ -5,7 +5,7 @@ services:
     image: nginx:latest
     container_name: "nginx_cont"
     ports:
-      - 9090:9091
+      - 9090:80
   django_app:
     image: django_app
     build:
