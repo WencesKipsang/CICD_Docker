@@ -6,7 +6,7 @@ services:
     container_name: "nginx_cont"
     ports:
       - 9090:80
-  django_app:
+  django_servi:
     image: django_app
     build:
       context: ./Django
