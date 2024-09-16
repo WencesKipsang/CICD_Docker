@@ -5,14 +5,14 @@ services:
     image: nginx:latest
     container_name: "nginx_cont"
     ports:
-      - "81:80"
+      - 9090:81
   django_app:
     image: django_app
     build:
       context: ./Django
     container_name: "django_cont"
     ports:
-      - "8888:8888"
+      - 8888:8888
     command: gunicorn  Django_CICD.wsgi  --bind  0.0.0.0:8888
   
 
