@@ -34,7 +34,6 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
 
                         sh '''
-                        chmod +x restart_django_container.sh
                         docker compose build --no-cache
                         docker compose up -d                       
                         '''
