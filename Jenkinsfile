@@ -43,17 +43,6 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
-            steps {
-                echo "setting up gunicorn"
-                script {
-                    dir('/root/frs_cicd/CICD_Docker') {
-                       
-                        echo "good"                                     
-                    }
-                }
-            }
-        }
         
         stage('Release') {
             steps {
