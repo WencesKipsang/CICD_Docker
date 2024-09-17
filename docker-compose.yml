@@ -33,7 +33,7 @@ services:
     env_file:
       - /root/frs_cicd/environments/.env
     ports:
-      - 5432:5432
+      - 5434:5434
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -42,6 +42,8 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "8088:80"
+    volumes:
+      - pg_data:/var/lib/pgadmin
     depends_on:
       - db
 
