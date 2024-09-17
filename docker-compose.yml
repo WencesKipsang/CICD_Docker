@@ -24,6 +24,5 @@ services:
     volumes:
       - static_volume:/Django_CICD_app/staticfiles
 
-
 volumes:
   static_volume:
