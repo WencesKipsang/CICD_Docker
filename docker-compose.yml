@@ -7,7 +7,7 @@ services:
     ports:
       - 9090:80
     volumes:
-      - static_volume:/static
+      - static_volume:/Django_CICD_app/staticfiles
     
   django_service:
     image: django_app
@@ -22,12 +22,13 @@ services:
     env_file:
       - /root/frs_cicd/environments/.env
     volumes:
-      - static_volume:/static
+      - static_volume:/Django_CICD_app/staticfiles
     depends_on:
       - db
 
   db:
     image: postgres:15
+    container_name: "frs_postgres"
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:

@@ -71,12 +71,19 @@ WSGI_APPLICATION = 'Django_CICD.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
-        "USER":  os.getenv("SQL_USER", "user"),
-        "PASSWORD": os.getenv("SQL_PASSWORD", "password"),
-        "HOST": os.getenv("SQL_HOST", "localhost"),
-        "PORT": os.getenv("SQL_PORT", "5432"),
+        "ENGINE": os.getenv("SQL_ENGINE"),
+        "NAME": os.getenv("SQL_DATABASE"),
+        "USER":  os.getenv("SQL_USER"),
+        "PASSWORD": os.getenv("SQL_PASSWORD"),
+        "HOST": os.getenv("SQL_HOST"),
+        "PORT": os.getenv("SQL_PORT"),
+
+        # "ENGINE": os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
+        # "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        # "USER":  os.getenv("SQL_USER", "user"),
+        # "PASSWORD": os.getenv("SQL_PASSWORD", "password"),
+        # "HOST": os.getenv("SQL_HOST", "localhost"),
+        # "PORT": os.getenv("SQL_PORT", "5432"),
     }
 }
 
