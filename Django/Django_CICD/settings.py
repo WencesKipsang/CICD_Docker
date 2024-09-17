@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG','False')
 
-ALLOWED_HOSTS =  os.getenv('DJANGO_ALLOWED_HOSTS','*')
+ALLOWED_HOSTS =  os.getenv('DJANGO_ALLOWED_HOSTS','*').split(',')
 
 
 # Application definition
@@ -71,12 +71,12 @@ WSGI_APPLICATION = 'Django_CICD.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE":  os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME":  os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "ENGINE": os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
         "USER":  os.getenv("SQL_USER", "user"),
-        "PASSWORD":  os.getenv("SQL_PASSWORD", "password"),
+        "PASSWORD": os.getenv("SQL_PASSWORD", "password"),
         "HOST": os.getenv("SQL_HOST", "localhost"),
-        "PORT":  os.getenv("SQL_PORT", "5432"),
+        "PORT": os.getenv("SQL_PORT", "5432"),
     }
 }
 
