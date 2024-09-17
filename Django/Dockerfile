@@ -18,5 +18,6 @@ RUN python3  manage.py collectstatic --noinput
 RUN  python3  manage.py makemigrations
 RUN  python3  manage.py migrate
 
-# run the Django server  
+# run the Django server 
+ 
 # CMD [  "run", "python3", "manage.py","runserver" "--host=0.0.0.0"]
