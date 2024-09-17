@@ -4,6 +4,7 @@ services:
     build: ./nginx
     image: nginx:latest
     container_name: "nginx_cont"
+    restart: unless-stopped
     ports:
       - 9090:80
     volumes:
@@ -14,6 +15,7 @@ services:
     build:
       context: ./Django
     container_name: "django_cont"
+    restart: unless-stopped
     ports:
       - 8888:8888
     expose:
@@ -23,6 +25,8 @@ services:
       - /root/frs_cicd/environments/.env
     volumes:
       - static_volume:/Django_CICD_app/staticfiles
+    depends_on:
+      - db
 
 volumes:
   static_volume:
