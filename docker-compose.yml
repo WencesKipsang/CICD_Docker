@@ -6,26 +6,48 @@ services:
     container_name: "nginx_cont"
     ports:
       - 9090:80
-  django_servi:
+    volumes:
+      - static_volume:/static
+    
+  django_service:
     image: django_app
     build:
       context: ./Django
     container_name: "django_cont"
     ports:
       - 8888:8888
+    expose:
+      - 8888
     command: gunicorn  Django_CICD.wsgi  --bind  0.0.0.0:8888
-  
+    env_file:
+      - /root/frs_cicd/environments/.env
+    volumes:
+      - - static_volume:/static
+    depends_on:
+      - db
 
-  # restart-service:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.restart
-  #   container_name: "restart_django"
-  #   # Optionally, you might need to use the same network as the Django service
-  #   networks:
-  #     - default
-  #   # Give the restart service access to Docker (if needed)
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: postgres:15
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - /root/frs_cicd/environments/.env
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8088:80"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
+  pg_data:
+  static_volume:
     
       
