@@ -12,11 +12,9 @@ ENV PYTHONUNBUFFERED = 1
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt --no-cache-dir
 
-# copy python project files from local to /hello-py image working directory
+# copy python project files from local to  image working directory
 COPY . .
 RUN python3  manage.py collectstatic --noinput
-RUN  python3  manage.py makemigrations
-RUN  python3  manage.py migrate
 
 # run the Django server 
  
