@@ -78,7 +78,6 @@ DATABASES = {
         "HOST": os.getenv('SQL_HOST'),
         "PORT": os.getenv('SQL_PORT'),
 
-
         # "ENGINE": os.getenv("SQL_ENGINE", "django.db.backends.sqlite3"),
         # "NAME": os.getenv("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
         # "USER":  os.getenv("SQL_USER", "user"),
