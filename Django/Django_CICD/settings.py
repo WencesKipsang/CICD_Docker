@@ -20,9 +20,9 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG','False')
 
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS =  os.getenv('DJANGO_ALLOWED_HOSTS','*').split(',')
+# ALLOWED_HOSTS =  os.getenv('DJANGO_ALLOWED_HOSTS','*').split(',')
 
 
 
@@ -138,5 +138,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS : True
+
+CSRF_TRUSTED_ORIGINS = ['*']
 
 # CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS')
