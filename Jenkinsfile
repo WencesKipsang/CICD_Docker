@@ -1,27 +1,33 @@
 pipeline {
     agent any
 
+    environment {
+        GIT_CREDENTIALS_ID = 'b943825b-5659-4d27-9fdf-b19746a0bc16' //the ID of  Jenkins credentials
+    }
+
     stages {
-        stage('Setup Python Virtual ENV checkout') {
+        stage('Setup Python Virtual ENV') {
             steps {
                 script {
                     dir('/root/frs_cicd') {
 
                         if (!fileExists('CICD_Docker')) {
-                            sh 'mkdir CICD_Docker'
-                            dir('/root/frs_cicd/CICD_Docker') {
-                                git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
-                            }
+                            sh 'mkdir CICD_Docker'                            
                         }
-                        if (fileExists('CICD_Docker')){
-                            dir('/root/frs_cicd/CICD_Docker') {
-                                git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
-                            }
-                        }
-                                                                     
+                                                                    
                     } 
                 }              
 
+            }
+        }
+
+        stage('checkout') {
+            steps {
+                script {
+                    dir('/root/frs_cicd/CICD_Docker') {
+                       git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git',credentialsId: env.GIT_CREDENTIALS_ID  
+                    } 
+                }
             }
         }
 
@@ -41,12 +47,7 @@ pipeline {
             }
         }
         
-        
-        stage('Release') {
-            steps {
-                echo "Releasing"
-            }
-        }
+    
     }
     post {
         success {
