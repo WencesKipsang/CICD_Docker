@@ -6,13 +6,19 @@ pipeline {
             steps {
                 script {
                     dir('/root/frs_cicd') {
+
                         if (!fileExists('CICD_Docker')) {
                             sh 'mkdir CICD_Docker'
                             dir('/root/frs_cicd/CICD_Docker') {
                                 git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
                             }
                         }
-                                              
+                        if (fileExists('CICD_Docker')){
+                            dir('/root/frs_cicd/CICD_Docker') {
+                                git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
+                            }
+                        }
+                                                                     
                     } 
                 }              
 
@@ -25,7 +31,6 @@ pipeline {
                 echo "Building"
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
-
                         sh '''
                         docker compose build --no-cache
                         docker compose up -d                       

@@ -1,6 +1,6 @@
 
 # base python image for custom image
-FROM python:3.12.6-alpine
+FROM python:3.12-alpine
 
 # create working directory and install pip dependencies
 WORKDIR  /Django_CICD_app
