@@ -1,10 +1,8 @@
 pipeline {
     agent any
-
-    environment {
-        GIT_CREDENTIALS_ID = 'b943825b-5659-4d27-9fdf-b19746a0bc16' //the ID of  Jenkins credentials
-    }
-
+    // environment {
+    //     GIT_CREDENTIALS_ID = 'b943825b-5659-4d27-9fdf-b19746a0bc16' //the ID of  Jenkins credentials
+    // }
     stages {
         stage('Setup Python Virtual ENV') {
             steps {
@@ -25,7 +23,7 @@ pipeline {
             steps {
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
-                       git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git',credentialsId: env.GIT_CREDENTIALS_ID  
+                       git branch: 'main', credentialsId: 'b943825b-5659-4d27-9fdf-b19746a0bc16', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
                     } 
                 }
             }
