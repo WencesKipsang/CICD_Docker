@@ -4,7 +4,7 @@ services:
     image: django_app
     build:
       context: ./Django
-    container_name: "django_cont"
+    container_name: "django_contain"
     restart: unless-stopped
     ports:
       - 8888:8888
