@@ -1,15 +1,5 @@
 
-services:
-  nginx:
-    build: ./nginx
-    image: nginx:latest
-    container_name: "nginx_cont"
-    restart: unless-stopped
-    ports:
-      - 9090:80
-    volumes:
-      - static_volume:/Django_CICD_app/staticfiles
-    
+services:    
   django_service:
     image: django_app
     build:
@@ -25,7 +15,13 @@ services:
       - /root/frs_cicd/environments/.env
     volumes:
       - static_volume:/Django_CICD_app/staticfiles
+    networks:
+        - frs-network
 
 volumes:
   static_volume:
+
+networks:
+  frs-network:
+    external: true
   

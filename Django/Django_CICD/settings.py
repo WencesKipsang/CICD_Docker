@@ -1,5 +1,3 @@
-
-
 from pathlib import Path
 
 
@@ -78,7 +76,7 @@ WSGI_APPLICATION = 'Django_CICD.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": os.getenv('SQL_DATABASE'),
         "USER": os.getenv('SQL_USER'),
         "PASSWORD": os.getenv('SQL_PASSWORD'),
