@@ -2,12 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup Python Virtual ENV') {
+        stage('Setup Python Virtual ENV checkout') {
             steps {
                 script {
                     dir('/root/frs_cicd') {
                         if (!fileExists('CICD_Docker')) {
                             sh 'mkdir CICD_Docker'
+                            dir('/root/frs_cicd/CICD_Docker') {
+                                git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
+                            }
                         }
                                               
                     } 
@@ -16,16 +19,6 @@ pipeline {
             }
         }
 
-        stage('Checkout') {
-            steps {
-                script {
-                        dir('/root/frs_cicd/CICD_Docker') {
-                            git branch: 'main', url: 'https://github.com/WencesKipsang/CICD_Docker.git' 
-                        }                     
-                }              
-
-            }
-        }
         
         stage('Build') {
             steps {
