@@ -55,7 +55,9 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
                         
                         docker.withRegistry('https://registry.hub.docker.com', registryCredential ){
+                            sh '''
                             django_app.push("latest") 
+                            '''
                         }
                                                                     
                         
