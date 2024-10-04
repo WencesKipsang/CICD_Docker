@@ -36,7 +36,7 @@ pipeline {
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
                         sh '''
-                        docker compose build --no-cache
+                        docker compose -f build --no-cache
                         docker compose up -d                       
                         '''
                         echo "docker images complete"
