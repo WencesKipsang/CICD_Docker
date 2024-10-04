@@ -46,17 +46,15 @@ pipeline {
         }
         
         stage('pushing image to docker') {
-            environment{
-                registryCredential = "5af99eb7-b813-4c34-829c-19c33f8544c7"
-            }
             steps {
                 echo "Pushing"
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
                         
-                        docker.withRegistry('https://registry.hub.docker.com', registryCredential ){
+                        
+                        withCredentials([usernamePassword(credentialsId: '5af99eb7-b813-4c34-829c-19c33f8544c7', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                             sh '''
-                            django_app.push("latest") 
+                            docker push wences3160/django_app:latest
                             '''
                         }
                                                                     
