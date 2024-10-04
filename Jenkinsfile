@@ -55,9 +55,7 @@ pipeline {
                     dir('/root/frs_cicd/CICD_Docker') {
                         
                         docker.withRegistry('https://registry.hub.docker.com', registryCredential ){
-                            sh'''
-                             docker push wences3160/django_app:latest
-                            ''' 
+                            docker push wences3160/django_app:latest 
                         }
                                                                     
                         
