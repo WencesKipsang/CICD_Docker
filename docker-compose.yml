@@ -2,7 +2,7 @@
 services:    
 
   django_service:
-    image: django_app
+    image: django_app:latest
     build:
       context: ./Django
     container_name: "django_contain"
