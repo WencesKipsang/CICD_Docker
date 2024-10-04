@@ -53,10 +53,14 @@ pipeline {
                 echo "Pushing"
                 script {
                     dir('/root/frs_cicd/CICD_Docker') {
-                        sh '''
-                        docker.withRegistry('https://registry.hub.docker.com',registryCredential )
-                        docker push wences3160/django_app:latest                                             
-                        '''
+                        
+                        docker.withRegistry('https://registry.hub.docker.com', registryCredential ){
+                            sh'''
+                             docker push wences3160/django_app:latest
+                            ''' 
+                        }
+                                                                    
+                        
                         echo "docker pushing images complete"
                     } 
                 }
