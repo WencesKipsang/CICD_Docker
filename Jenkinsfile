@@ -53,7 +53,8 @@ pipeline {
                         
                         withCredentials([usernamePassword(credentialsId: '5af99eb7-b813-4c34-829c-19c33f8544c7', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                             sh '''
-                            docker push django_app:latest
+                            docker tag django_app:latest $DOCKER_USER/django_app:latest
+                            docker push $DOCKER_USER/django_app:latest
                             '''
                         }                                                                   
                         
