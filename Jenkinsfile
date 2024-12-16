@@ -59,12 +59,22 @@ pipeline {
                             '''
                         }                                                                   
                         
-                        echo "docker pushing images complete"
+                        echo "docker pushing   images complete"
                     } 
                 }
             }
         }
+        stage('deploy to kubernetes'){
+            steps{
+                script{
+                    dir('/root/frs_cicd/CICD_Docker') {
+                        kubernetesDeploy (configs: 'django-deployment.yml', kubeconfigId: 'frsk8config')
     
+                    }
+                }
+            }
+        }
+        
     }
     post {
         success {
