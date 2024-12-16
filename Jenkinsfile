@@ -68,7 +68,7 @@ pipeline {
             steps{
                 script{
                     dir('/root/frs_cicd/CICD_Docker') {
-                        kubernetesDeploy (configs: 'django-deployment.yml', kubeconfigId: 'frsk8config')
+                        kubernetesDeploy (configs: 'django-deployment.yaml', kubeconfigId: 'frsk8config')
     
                     }
                 }
